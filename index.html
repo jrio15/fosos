@@ -23,10 +23,12 @@
 <script>
   // URL de la aplicación web de Google Apps Script (la que termina en /exec)
   const APP = "https://script.google.com/macros/s/AKfycbySD0_OjVsCflS5k-ftBu19yQTRpPNULluBpJAd-kBjfTG8Msy2-IS9qPaYg_qbJI6u/exec";
+  // Código del grupo: va incluido, así nadie tiene que escribirlo
+  const CODIGO = "capelgordi";
 
   const store = { get(k){ try{return localStorage.getItem(k)}catch(e){return null} }, set(k,v){ try{localStorage.setItem(k,v)}catch(e){} } };
   const q = new URLSearchParams(location.search);
-  const c = q.get("c") || store.get("fosos_c") || "";
+  const c = q.get("c") || store.get("fosos_c") || CODIGO;
   const n = q.get("n") || store.get("fosos_n") || "";
   const p = new URLSearchParams();
   if (c) p.set("c", c);
