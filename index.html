@@ -28,11 +28,11 @@
 
   const store = { get(k){ try{return localStorage.getItem(k)}catch(e){return null} }, set(k,v){ try{localStorage.setItem(k,v)}catch(e){} } };
   const q = new URLSearchParams(location.search);
-  const c = q.get("c") || store.get("fosos_c") || CODIGO;
-  const n = q.get("n") || store.get("fosos_n") || "";
+  const c = q.get("cod") || store.get("fosos_c") || CODIGO;
+  const n = q.get("nom") || store.get("fosos_n") || "";
   const p = new URLSearchParams();
-  if (c) p.set("c", c);
-  if (n) p.set("n", n);
+  if (c) p.set("cod", c);
+  if (n) p.set("nom", n);
   document.getElementById("app").src = APP + (p.toString() ? "?" + p : "");
 
   // La app avisa cuando alguien entra con el código o cambia su nombre:
@@ -41,8 +41,8 @@
     const d = e.data && e.data.fosos;
     if (!d || !d.c) return;
     store.set("fosos_c", d.c); store.set("fosos_n", d.n || "");
-    const u = new URLSearchParams({c: d.c});
-    if (d.n) u.set("n", d.n);
+    const u = new URLSearchParams({cod: d.c});
+    if (d.n) u.set("nom", d.n);
     history.replaceState(null, "", location.pathname + "?" + u);
   });
 </script>
