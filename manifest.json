@@ -1,0 +1,11 @@
+{
+  "name": "FOSOS",
+  "short_name": "FOSOS",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#13101C",
+  "theme_color": "#5E35CF",
+  "icons": [
+    { "src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
